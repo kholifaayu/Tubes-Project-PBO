@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Manajemen Ekstrakurikuler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistem Manajemen Anggota Ekstrakurikuler</h1>
+    </header>
+
+    <section class="container">
+
+        <div class="card">
+            <h2>Tambah Anggota</h2>
+
+            <input type="text" id="nama" placeholder="Nama">
+            <input type="text" id="kelas" placeholder="Kelas">
+            <select id="jenis">
+                <option value="Inti">Anggota Inti</option>
+                <option value="Magang">Anggota Magang</option>
+            </select>
+
+            <button onclick="tambahAnggota()">Tambah</button>
+        </div>
+
+        <div class="card">
+            <h2>Daftar Anggota</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Jenis</th>
+                        <th>Bonus</th>
+                    </tr>
+                </thead>
+
+                <tbody id="dataAnggota"></tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

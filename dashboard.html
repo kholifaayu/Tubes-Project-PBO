@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Sistem Manajemen Ekstrakurikuler
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+        <button class="logout-btn" onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+        <h2>Halaman </h2>
+
+        <ul>
+
+            <li>
+                <a href="#dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#anggota">
+                    <i class="fa-solid fa-users"></i>
+                    Biodata Anggota
+                </a>
+            </li>
+
+            <li>
+                <a href="#riwayat">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Riwayat Latihan
+                </a>
+            </li>
+
+            <li>
+                <a href="#manajemen">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Manajemen Latihan
+                </a>
+            </li>
+
+            <li>
+                <a href="#prestasi">
+                    <i class="fa-solid fa-trophy"></i>
+                    Prestasi
+                </a>
+            </li>
+
+            <li>
+                <a href="#disiplin">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Disiplin
+                </a>
+            </li>
+
+            <li>
+                <a href="#laporan">
+                    <i class="fa-solid fa-file"></i>
+                    Laporan
+                </a>
+            </li>
+
+        </ul>
+
+        <button class="logout-btn" onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+
+        <!-- HEADER -->
+
+        <header id="dashboard">
+
+            <h1>
+                Sistem Manajemen Ekstrakurikuler
+            </h1>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard-cards">
+
+            <div class="dash-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>Total Anggota</h3>
+
+                <p id="totalAnggota">0</p>
+
+            </div>
+
+            <div class="dash-card">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <h3>Total Latihan</h3>
+
+                <p id="totalLatihan">0</p>
+
+            </div>
+
+            <div class="dash-card">
+
+                <i class="fa-solid fa-trophy"></i>
+
+                <h3>Total Prestasi</h3>
+
+                <p id="totalPrestasi">0</p>
+
+            </div>
+
+            <div class="dash-card">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <h3>Total Pelanggaran</h3>
+
+                <p id="totalDisiplin">0</p>
+
+            </div>
+
+        </div>
+
+        <!-- BIODATA -->
+
+        <div class="card" id="anggota">
+
+            <h2>Manajemen Biodata Anggota</h2>
+
+            <input type="text" id="nis" placeholder="NIS">
+
+            <input type="text" id="nama" placeholder="Nama Lengkap">
+
+            <input type="text" id="kelas" placeholder="Kelas">
+
+            <input type="text" id="telepon" placeholder="No Telepon">
+
+            <input type="number" id="tahun" placeholder="Tahun Bergabung">
+
+            <select id="jenis">
+
+                <option value="Inti">
+                    Anggota Inti
+                </option>
+
+                <option value="Magang">
+                    Anggota Magang
+                </option>
+
+            </select>
+
+            <button onclick="tambahAnggota()">
+                Tambah Anggota
+            </button>
+
+        </div>
+
+        <!-- TABEL ANGGOTA -->
+
+        <div class="card">
+
+            <h2>Data Anggota</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>NIS</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Telepon</th>
+                        <th>Tahun</th>
+                        <th>Jenis</th>
+                        <th>Bonus</th>
+                        <th>Aksi</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dataAnggota"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- RIWAYAT -->
+
+        <div class="card" id="riwayat">
+
+            <h2>Riwayat Latihan</h2>
+
+            <select id="anggotaLatihan">
+
+                <option value="">
+                    Pilih Anggota
+                </option>
+
+            </select>
+
+            <input type="date" id="tanggalLatihan">
+
+            <select id="statusLatihan">
+
+                <option value="Hadir">
+                    Hadir
+                </option>
+
+                <option value="Tidak Hadir">
+                    Tidak Hadir
+                </option>
+
+            </select>
+
+            <button onclick="tambahRiwayat()">
+                Tambah Riwayat
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Data Riwayat</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nama</th>
+                        <th>Tanggal</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dataRiwayat"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- MANAJEMEN LATIHAN -->
+
+        <div class="card" id="manajemen">
+
+            <h2>Manajemen Latihan</h2>
+
+            <select id="anggotaManajemen">
+
+                <option value="">
+                    Pilih Anggota
+                </option>
+
+            </select>
+
+            <input type="date" id="tanggalManajemen">
+
+            <input type="time" id="jamLatihan">
+
+            <input type="text" id="tempatLatihan" placeholder="Tempat Latihan">
+
+            <input type="text" id="pelatih" placeholder="Nama Pelatih">
+
+            <input type="text" id="materi" placeholder="Materi Latihan">
+
+            <textarea id="catatanLatihan" placeholder="Catatan Latihan"></textarea>
+
+            <select id="statusManajemen">
+
+                <option value="Hadir">
+                    Hadir
+                </option>
+
+                <option value="Tidak Hadir">
+                    Tidak Hadir
+                </option>
+
+                <option value="Izin">
+                    Izin
+                </option>
+
+            </select>
+
+            <button onclick="tambahManajemenLatihan()">
+
+                Tambah Data Latihan
+
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Data Latihan</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nama</th>
+                        <th>Tanggal</th>
+                        <th>Jam</th>
+                        <th>Tempat</th>
+                        <th>Pelatih</th>
+                        <th>Materi</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dataManajemenLatihan"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PRESTASI -->
+
+        <div class="card" id="prestasi">
+
+            <h2>Manajemen Prestasi</h2>
+
+            <select id="anggotaPrestasi">
+
+                <option value="">
+                    Pilih Anggota
+                </option>
+
+            </select>
+
+            <input type="text" id="namaPrestasi" placeholder="Nama Prestasi">
+
+            <select id="tingkatPrestasi">
+
+                <option value="Sekolah">
+                    Sekolah
+                </option>
+
+                <option value="Kota">
+                    Kota
+                </option>
+
+                <option value="Provinsi">
+                    Provinsi
+                </option>
+
+                <option value="Nasional">
+                    Nasional
+                </option>
+
+            </select>
+
+            <input type="number" id="tahunPrestasi" placeholder="Tahun Prestasi">
+
+            <textarea id="keteranganPrestasi" placeholder="Keterangan Prestasi"></textarea>
+
+            <button onclick="tambahPrestasi()">
+                Tambah Prestasi
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Data Prestasi</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nama</th>
+                        <th>Prestasi</th>
+                        <th>Tingkat</th>
+                        <th>Tahun</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dataPrestasi"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- DISIPLIN -->
+
+        <div class="card" id="disiplin">
+
+            <h2>Manajemen Disiplin</h2>
+
+            <select id="anggotaDisiplin">
+
+                <option value="">
+                    Pilih Anggota
+                </option>
+
+            </select>
+
+            <input type="text" id="pelanggaran" placeholder="Jenis Pelanggaran">
+
+            <input type="number" id="poinPelanggaran" placeholder="Poin Pelanggaran">
+
+            <textarea id="catatanDisiplin" placeholder="Catatan Disiplin"></textarea>
+
+            <button onclick="tambahDisiplin()">
+                Tambah Pelanggaran
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Data Disiplin</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nama</th>
+                        <th>Pelanggaran</th>
+                        <th>Poin</th>
+                        <th>Catatan</th>
+                        <th>Aksi</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="dataDisiplin"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- LAPORAN -->
+
+        <div class="card" id="laporan">
+
+            <h2>Laporan Data</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Total Anggota</th>
+                        <th>Total Latihan</th>
+                        <th>Total Prestasi</th>
+                        <th>Total Pelanggaran</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td id="laporanAnggota">0</td>
+                        <td id="laporanLatihan">0</td>
+                        <td id="laporanPrestasi">0</td>
+                        <td id="laporanDisiplin">0</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
